@@ -60,12 +60,22 @@ else{
 
         
             
-                    /*esta linea evalua si el  requerimiento es de tipo POST*/
+                    /*esta linea evalua si el  requerimiento es de tipo GET*/
                     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD']=="GET") {
                     /*====================================================*/
                     $cursos = new ControladorClientes();
                     $cursos-> index();
 
+                    }
+                    /*esta linea evalua si el  requerimiento es de tipo POST*/
+                    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD']=="POST") {
+
+                    $datos = array("nombre"=>$_POST["nombre"],
+                             "apellido"=>$_POST["apellido"],
+                             "email"=>$_POST["email"]);
+                    /*====================================================*/
+                    $clientes = new ControladorClientes();
+                    $clientes->create($datos);
                     }
             }
     }

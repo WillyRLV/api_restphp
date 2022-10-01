@@ -12,4 +12,7 @@ require_once "modelos/cursos.modelo.php";
 
 $rutas = new ControladorRutas();
 $rutas -> inicio();
+
+
+
 ?>
